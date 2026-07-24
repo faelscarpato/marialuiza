@@ -248,7 +248,7 @@ body::before {
 .capa__shot::after {
   content: "";
   position: absolute; inset: 12px;
-  background-image: url("/imgs/foto_perfil.jpg");
+  background-image: url("./imgs/foto_perfil.jpg");
   background-size: cover;
   background-position: center 20%;
   filter: grayscale(0.3) contrast(1.1);
