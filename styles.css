@@ -5,6 +5,7 @@
    0 radius. Sem glass. Sem gradient. Brutalist sports archive.
    ============================================================ */
 
+
 :root {
   --bg:        #0a0a0a;
   --bg-2:      #131313;
@@ -20,12 +21,14 @@
   --paper:     #d4b483;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
 html { scroll-behavior: smooth; }
 ::selection { background: var(--action); color: #fff; }
 img { display: block; max-width: 100%; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 a { color: inherit; text-decoration: none; }
+
 
 body {
   background: var(--bg);
@@ -38,6 +41,7 @@ body {
   letter-spacing: -0.005em;
 }
 
+
 body::before {
   content: "";
   position: fixed; inset: 0;
@@ -48,6 +52,7 @@ body::before {
   background-size: 200px;
 }
 
+
 .mono {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 11px;
@@ -57,8 +62,10 @@ body::before {
   color: var(--text-35);
 }
 
+
 .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 120px 0; }
+
 
 /* ============================================================
    HEADER FIXA
@@ -84,13 +91,18 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 .hdr__mark {
   font-family: "Archivo Black", sans-serif;
   font-size: 16px;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
 }
-.hdr__nav { display: flex; gap: 32px; align-items: center; }
+.hdr__nav { display: flex; gap: 32px; align-items: center; flex-shrink: 0; }
 .hdr__link {
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
@@ -100,6 +112,7 @@ body::before {
   transition: color 120ms ease-out;
   padding: 8px 0;
   touch-action: manipulation;
+  white-space: nowrap;
 }
 .hdr__link:hover, .hdr__link:focus-visible { color: var(--text); outline: none; }
 .hdr__link--action {
@@ -113,13 +126,15 @@ body::before {
   color: #fff;
 }
 
-/* hamburger fallback se nav overflow em telas estreitas */
+
+/* hamburger */
 .hdr__toggle {
   display: none;
   flex-direction: column;
   gap: 4px;
   padding: 10px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 .hdr__toggle span {
   display: block;
@@ -130,7 +145,7 @@ body::before {
   display: none;
   flex-direction: column;
   padding: 16px 24px 24px;
-  gap: 12px;
+  gap: 2px;
   border-top: 1px solid var(--border);
   background: var(--bg);
 }
@@ -149,6 +164,7 @@ body::before {
   border-bottom: 1px solid var(--action);
   margin-top: 8px;
 }
+
 
 /* ============================================================
    BOTÃO
@@ -182,6 +198,7 @@ body::before {
 .btn--ghost:hover { color: var(--text); border-color: var(--text-35); }
 .btn--full { width: 100%; }
 
+
 .btn__spinner {
   width: 14px; height: 14px;
   border: 2px solid #fff; border-top-color: transparent;
@@ -203,6 +220,7 @@ body::before {
 .btn.is-success .btn__check { display: inline; opacity: 1; transform: scale(1); }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+
 /* ============================================================
    CAPA
    ============================================================ */
@@ -223,6 +241,7 @@ body::before {
     linear-gradient(0deg, rgba(10,10,10,0.85) 20%, transparent 30%);
 }
 
+
 .capa__grid {
   position: relative;
   z-index: 2;
@@ -235,6 +254,7 @@ body::before {
   gap: 48px;
   align-items: end;
 }
+
 
 .capa__shot {
   position: relative;
@@ -266,6 +286,7 @@ body::before {
   padding: 4px 8px;
 }
 
+
 .capa__letra { display: flex; flex-direction: column; gap: 24px; }
 .capa__letra-top {
   display: flex; flex-wrap: wrap;
@@ -285,6 +306,8 @@ body::before {
   flex-direction: column;
   gap: 8px;
   margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .capa__letra-line { color: var(--text); }
 .capa__letra-line--sm {
@@ -296,6 +319,7 @@ body::before {
   margin-top: 4px;
 }
 
+
 .capa__letra-sub {
   font-size: 17px;
   max-width: 540px;
@@ -303,7 +327,9 @@ body::before {
   line-height: 1.5;
 }
 
+
 .capa__letra-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
 
 .capa__letra-marks {
   display: flex;
@@ -319,6 +345,7 @@ body::before {
   line-height: 1;
   letter-spacing: -0.02em;
 }
+
 
 /* ============================================================
    REGISTRO (TIMELINE HORIZONTAL)
@@ -340,9 +367,11 @@ body::before {
   font-size: clamp(56px, 10vw, 120px);
   line-height: 0.85;
   letter-spacing: -0.03em;
+  word-break: break-word;
 }
 .registro__title--accent { color: var(--action); }
 .registro__sub { font-size: 16px; color: var(--text-60); max-width: 480px; }
+
 
 .registro__track-viewport {
   overflow-x: auto;
@@ -361,6 +390,7 @@ body::before {
   width: max-content;
   min-width: 100%;
 }
+
 
 .track-card {
   scroll-snap-align: start;
@@ -414,11 +444,13 @@ body::before {
   filter: grayscale(0.4) contrast(1.05);
 }
 
+
 .registro__scroll-hint {
   text-align: center;
   padding: 8px 0 0;
   color: var(--text-35);
 }
+
 
 /* ============================================================
    TRAJETORIA (PIP PARALAX)
@@ -442,6 +474,7 @@ body::before {
   line-height: 0.9;
   letter-spacing: -0.03em;
   margin: 22px 0 24px;
+  word-break: break-word;
 }
 .trajetoria__title--accent { color: var(--action); }
 .trajetoria__col-texto p {
@@ -469,6 +502,7 @@ body::before {
   color: var(--text-35);
   font-style: normal;
 }
+
 
 .trajetoria__col-pip {
   position: relative;
@@ -508,6 +542,7 @@ body::before {
   opacity: 0.95;
 }
 
+
 /* ============================================================
    PROVA (4 SELOS)
    ============================================================ */
@@ -529,9 +564,11 @@ body::before {
   font-size: clamp(48px, 9vw, 100px);
   line-height: 0.88;
   letter-spacing: -0.03em;
+  word-break: break-word;
 }
 .prova__title--accent { color: var(--action); }
 .prova__sub { font-size: 16px; color: var(--text-60); max-width: 480px; }
+
 
 .prova__grid {
   padding: 0 24px;
@@ -563,7 +600,7 @@ body::before {
 }
 .selo__caption { margin-top: auto; line-height: 1.4; }
 
-/* tooltip de source */
+
 .selo::after {
   content: attr(data-source);
   position: absolute;
@@ -579,6 +616,7 @@ body::before {
   text-align: right;
 }
 .selo:hover::after { opacity: 1; }
+
 
 /* ============================================================
    BOOKING (ACCORDION + FORM INLINE)
@@ -603,9 +641,11 @@ body::before {
   font-size: clamp(48px, 9vw, 100px);
   line-height: 0.88;
   letter-spacing: -0.03em;
+  word-break: break-word;
 }
 .booking__title--accent { color: var(--action); }
 .booking__sub { font-size: 16px; color: var(--text-60); }
+
 
 .booking__lista {
   display: flex;
@@ -652,12 +692,14 @@ body::before {
 }
 .modalidade[data-open="true"] .modalidade__plus { transform: rotate(45deg); }
 
+
 .modalidade__body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 250ms cubic-bezier(0.16,1,0.3,1);
 }
 .modalidade[data-open="true"] .modalidade__body { max-height: 600px; }
+
 
 .modalidade__body-inner {
   padding: 0 20px 32px 84px;
@@ -672,6 +714,7 @@ body::before {
   line-height: 1.6;
   margin: 0;
 }
+
 
 /* FORM INLINE */
 .form {
@@ -714,6 +757,7 @@ body::before {
   min-height: 12px;
 }
 
+
 /* ============================================================
    ET FILE (FOOTER)
    ============================================================ */
@@ -742,6 +786,7 @@ body::before {
   line-height: 0.85;
   letter-spacing: -0.04em;
   margin: 8px 0;
+  word-break: break-word;
 }
 .etfile__contatos {
   display: flex;
@@ -763,6 +808,8 @@ body::before {
   font-size: 14px;
   letter-spacing: 0.02em;
   transition: color 120ms;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 .etfile__copy {
   max-width: 1400px;
@@ -776,6 +823,7 @@ body::before {
   flex-wrap: wrap;
   gap: 8px;
 }
+
 
 /* ============================================================
    TOAST
@@ -796,8 +844,11 @@ body::before {
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms ease-out, transform 250ms cubic-bezier(0.16,1,0.3,1);
+  max-width: calc(100vw - 32px);
+  text-align: center;
 }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
 
 /* ============================================================
    REVEAL (capa only — cinematic)
@@ -811,9 +862,12 @@ body::before {
   .reveal.is-visible { opacity: 1; transform: none; }
 }
 
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* TABLET */
 @media (min-width: 768px) {
   .trajetoria {
     grid-template-columns: 1fr 1fr;
@@ -823,54 +877,132 @@ body::before {
   .trajetoria__col-pip { min-height: 720px; }
 }
 
+
+/* MOBILE */
 @media (max-width: 767px) {
+
+  /* HEADER */
   .hdr__nav { display: none; }
   .hdr__toggle { display: flex; }
+  .hdr__inner {
+    padding: 0 16px;
+    height: 56px;
+  }
+  .hdr__mark {
+    font-size: 13px;
+    max-width: calc(100vw - 80px);
+  }
+  .hdr__mobile { padding: 16px 16px 24px; }
 
-  .capa { padding-top: 88px; }
+  /* CAPA */
+  .capa { padding-top: 72px; }
   .capa__grid {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 32px 24px 64px;
+    gap: 24px;
+    padding: 24px 16px 56px;
   }
-  .capa__shot { min-height: 180px; order: 2; }
-  .capa__letra { order: 1; }
-  .capa__letra-marks { gap: 24px; flex-wrap: wrap; }
-  .capa__mark-num { font-size: 28px; }
+  .capa__shot { min-height: 200px; order: 2; }
+  .capa__letra { order: 1; gap: 16px; }
+  .capa__letra-title {
+    font-size: clamp(56px, 20vw, 92px);
+    letter-spacing: -0.03em;
+  }
+  .capa__letra-line--sm { font-size: clamp(14px, 4vw, 20px); }
+  .capa__letra-sub { font-size: 15px; max-width: 100%; }
+  .capa__letra-top { gap: 8px 16px; }
+  .capa__letra-marks { gap: 16px; flex-wrap: wrap; }
+  .capa__mark-num { font-size: 26px; }
+  .capa__letra-actions { gap: 8px; }
+  .capa__letra-actions .btn { font-size: 11px; padding: 12px 16px; }
 
-  .section, .registro, .trajetoria, .prova, .booking { padding: 80px 0; }
+  /* SEÇÕES */
+  .section,
+  .registro,
+  .trajetoria,
+  .prova,
+  .booking { padding: 64px 0; }
 
-  .prova__grid { grid-template-columns: 1fr; }
-  .selo { padding: 24px; min-height: 160px; }
+  /* REGISTRO */
+  .registro__intro { padding: 0 16px; margin-bottom: 32px; }
+  .registro__title { font-size: clamp(40px, 12vw, 64px); }
+  .registro__track-viewport { padding: 12px 16px 24px; }
+  .registro__track { grid-auto-columns: minmax(260px, 82vw); }
+  .track-card { padding: 24px 20px; min-height: 320px; }
+  .track-card__ano { font-size: clamp(56px, 18vw, 80px); }
+  .track-card__comp { font-size: 18px; }
 
+  /* TRAJETÓRIA */
+  .trajetoria {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .trajetoria__title { font-size: clamp(32px, 10vw, 56px); }
   .pip--back, .pip--mid, .pip--front {
     position: relative;
     width: 100% !important;
-    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+    top: auto !important; left: auto !important;
+    right: auto !important; bottom: auto !important;
     margin: 0 0 16px;
     opacity: 1;
   }
   .trajetoria__col-pip { min-height: auto; }
 
-  .modalidade__head {
-    grid-template-columns: 48px 1fr auto;
-    gap: 12px;
+  /* PROVA */
+  .prova { padding-left: 0; padding-right: 0; }
+  .prova__intro { padding: 0 16px; margin-bottom: 32px; }
+  .prova__title { font-size: clamp(36px, 12vw, 64px); }
+  .prova__grid { grid-template-columns: 1fr; padding: 0 16px; }
+  .selo { padding: 20px 16px; min-height: 140px; }
+  .selo__num { font-size: clamp(36px, 12vw, 64px); }
+
+  /* BOOKING */
+  .booking {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
+  .booking__title { font-size: clamp(36px, 12vw, 64px); }
+  .modalidade__head {
+    grid-template-columns: 40px 1fr auto;
+    gap: 10px;
+    padding: 18px 14px;
+  }
+  .modalidade__nome { font-size: clamp(18px, 5vw, 26px); }
   .modalidade__meta { display: none; }
-  .modalidade__body-inner { padding: 0 20px 24px 80px; }
+  .modalidade__body-inner { padding: 0 16px 24px 16px; }
   .form__row { grid-template-columns: 1fr; }
 
+  /* FOOTER */
+  .etfile { padding: 48px 16px 24px; }
   .etfile__grid { grid-template-columns: 1fr; gap: 24px; }
-  .etfile__brand { font-size: 64px; }
+  .etfile__brand { font-size: clamp(48px, 16vw, 80px); }
+  .etfile__copy { flex-direction: column; gap: 6px; }
 }
 
+
+/* TELAS MUITO PEQUENAS */
 @media (max-width: 420px) {
-  .capa__letra-title { font-size: 92px; }
-  .capa__letra-line--sm { font-size: 16px; }
-  .registro__title { font-size: 56px; }
+  .hdr__inner { height: 52px; padding: 0 12px; }
+  .hdr__mark { font-size: 12px; }
+
+  .capa__letra-title { font-size: clamp(44px, 22vw, 72px); }
+  .capa__letra-line--sm { font-size: 13px; }
+
+  .registro__title { font-size: 38px; }
+
+  .container { padding: 0 12px; }
+  .btn { padding: 11px 14px; font-size: 10px; }
+
+  .prova__title { font-size: 36px; }
+  .booking__title { font-size: 36px; }
+  .etfile__brand { font-size: 48px; }
 }
 
-/* reduced motion */
+
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
