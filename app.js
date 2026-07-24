@@ -34,7 +34,7 @@
         '<div class="track-card__ano" data-ano="' + c.ano + '">0</div>' +
         '<div class="track-card__comp">' + c.comp + '</div>' +
         '<div class="track-card__lugar">' + c.lugar + '</div>' +
-        '<div class="track-card__thumb" style="background-image:url(/imgs/' + c.thumb + ')"></div>' +
+        '<div class="track-card__thumb" style="background-image:url(./imgs/' + c.thumb + ')"></div>' +
         '<div class="track-card__result"><span>colocação</span><span class="track-card__pos">' + c.pos + '</span></div>';
       track.appendChild(card);
     });
